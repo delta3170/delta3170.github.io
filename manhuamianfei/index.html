@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漫画免费网站-免费漫画在线阅读_漫画网站推荐与阅读入口</title>
+<meta name="description" content="漫画免费网站首页，汇总免费漫画在线阅读入口、热门连载与完结漫画分类，介绍漫画免费网站的使用方式与阅读体验，方便读者快速找到想看的漫画。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4f1ea'/%3E%3Cpath d='M16 18h14a6 6 0 0 1 6 6v24a6 6 0 0 0-6-6H16z' fill='%232b2b2b'/%3E%3Cpath d='M48 18H36a6 6 0 0 0-6 6v24a6 6 0 0 1 6-6h12z' fill='%23e0553c'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#22201d;
+    --ink-soft:#4a463f;
+    --paper:#f4f1ea;
+    --paper-2:#ebe6db;
+    --line:#d8d1c3;
+    --accent:#e0553c;
+    --accent-soft:#f6ddd7;
+    --blue:#2f4a6b;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:20;
+    background:rgba(244,241,234,.94);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(6px);
+  }
+  .bar{
+    display:flex;align-items:center;gap:22px;
+    padding:12px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;font-size:18px;}
+  .brand .mark{width:34px;height:34px;flex:0 0 auto;}
+  nav.main{display:flex;gap:18px;flex-wrap:wrap;font-size:15px;margin-left:auto;}
+  nav.main a{
+    padding:4px 2px;border-bottom:2px solid transparent;color:var(--ink-soft);
+  }
+  nav.main a:hover,nav.main a:focus-visible{border-bottom-color:var(--accent);color:var(--ink);}
+  .search{
+    display:flex;align-items:center;gap:8px;margin-left:auto;
+  }
+  .search input{
+    font:inherit;font-size:14px;padding:8px 12px;width:200px;
+    border:1px solid var(--line);border-radius:999px;background:#fffdf8;color:var(--ink);
+  }
+  .search input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent);}
+  .search button{
+    font:inherit;font-size:14px;padding:8px 16px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  }
+  .search button:hover{background:var(--accent);border-color:var(--accent);}
+
+  /* Hero */
+  .hero{
+    padding:52px 0 38px;
+    display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700;
+    background:var(--accent-soft);padding:4px 12px;border-radius:999px;
+  }
+  h1{
+    font-size:clamp(30px,4.6vw,48px);
+    line-height:1.22;margin:16px 0 14px;letter-spacing:-.5px;
+  }
+  .lede{font-size:16.5px;color:var(--ink-soft);max-width:38em;margin:0 0 24px;}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:999px;font-weight:700;font-size:15px;
+    border:1px solid var(--ink);transition:.15s;
+  }
+  .btn.solid{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn.solid:hover{background:#c74831;border-color:#c74831;}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.ghost:hover{background:var(--paper-2);}
+  .hero-art{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:22px;
+    padding:18px;transform:rotate(-1.2deg);
+  }
+  .hero-art svg{border-radius:12px;background:#fffdf8;}
+
+  /* Section base */
+  section{padding:44px 0;border-top:1px solid var(--line);}
+  .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:24px;}
+  h2{font-size:clamp(21px,2.6vw,27px);margin:0;letter-spacing:-.3px;}
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+  h3{font-size:17px;margin:0 0 6px;}
+
+  /* Grid cards */
+  .grid{display:grid;gap:18px;}
+  .grid.c3{grid-template-columns:repeat(3,1fr);}
+  .grid.c2{grid-template-columns:repeat(2,1fr);}
+  .card{
+    background:#fffdf8;border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 20px 18px;
+  }
+  .card .tag{
+    display:inline-block;font-size:12px;font-weight:700;color:var(--blue);
+    background:#e6ecf3;border-radius:6px;padding:2px 8px;margin-bottom:10px;
+  }
+  .card p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+
+  /* Reading list */
+  .list{display:grid;gap:12px;}
+  .row{
+    display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;
+    background:#fffdf8;border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 18px;
+  }
+  .row .num{
+    width:56px;height:56px;border-radius:10px;display:grid;place-items:center;
+    background:var(--paper-2);font-weight:800;color:var(--accent);
+    font-size:15px;letter-spacing:1px;
+  }
+  .row .info p{margin:0;font-size:14px;color:var(--ink-soft);}
+  .row .meta{font-size:13px;color:var(--ink-soft);white-space:nowrap;}
+  .row .meta b{color:var(--ink);}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s;}
+  .step{
+    position:relative;padding:22px 20px 20px;border-radius:var(--radius);
+    background:var(--paper-2);border:1px solid var(--line);
+  }
+  .step::before{
+    counter-increment:s;content:counter(s,decimal-leading-zero);
+    font-weight:800;font-size:13px;letter-spacing:2px;color:var(--accent);
+    display:block;margin-bottom:8px;
+  }
+  .step p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+  /* Note block */
+  .note{
+    display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;
+    background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:26px;
+  }
+  .note ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;}
+  .note li{margin-bottom:8px;}
+  .note strong{color:var(--ink);}
+
+  /* Download */
+  .dl{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    background:var(--ink);color:var(--paper);border-radius:18px;padding:26px 28px;
+  }
+  .dl h3{margin:0 0 4px;color:#fff;font-size:19px;}
+  .dl p{margin:0;color:#cfc8b9;font-size:14px;max-width:44em;}
+  .dl .btn{
+    background:var(--accent);border-color:var(--accent);color:#fff;pointer-events:none;
+  }
+
+  /* Footer */
+  footer.site{
+    border-top:1px solid var(--line);padding:30px 0 40px;margin-top:10px;
+    color:var(--ink-soft);font-size:13.5px;
+  }
+  .foot-top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;}
+  .foot-brand{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--ink);font-size:15px;}
+  .foot-brand .mark{width:26px;height:26px;}
+  .foot-links{display:flex;gap:16px;flex-wrap:wrap;}
+  .foot-links a:hover{color:var(--accent);}
+  .foot-bottom{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);}
+
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:34px;gap:26px;}
+    .hero-art{transform:none;order:2;}
+    .grid.c3,.steps{grid-template-columns:1fr 1fr;}
+    .note{grid-template-columns:1fr;}
+  }
+  @media (max-width:620px){
+    .bar{gap:10px;}
+    nav.main{order:3;width:100%;margin-left:0;gap:14px;font-size:14px;}
+    .search{margin-left:auto;order:2;}
+    .search input{width:130px;}
+    .grid.c3,.grid.c2,.steps{grid-template-columns:1fr;}
+    .row{grid-template-columns:46px 1fr;gap:12px;}
+    .row .meta{grid-column:2;white-space:normal;}
+    .row .num{width:46px;height:46px;}
+    body{font-size:15.5px;}
+    section{padding:34px 0;}
+    .dl{padding:22px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="漫画免费网站 首页">
+      <svg class="mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#ebe6db"/>
+        <path d="M15 17h14a6 6 0 0 1 6 6v25a6 6 0 0 0-6-6H15z" fill="#22201d"/>
+        <path d="M49 17H35a6 6 0 0 0-6 6v25a6 6 0 0 1 6-6h14z" fill="#e0553c"/>
+      </svg>
+      <span>漫画免费网站</span>
+    </a>
+    <form class="search" role="search" onsubmit="return jumpSearch(event)">
+      <label class="sr-only" for="q">搜索漫画</label>
+      <input id="q" name="q" type="search" placeholder="搜漫画名或题材" autocomplete="off">
+      <button type="submit">搜索</button>
+    </form>
+    <nav class="main" aria-label="主导航">
+      <a href="#catalog">热门连载</a>
+      <a href="#how">阅读方式</a>
+      <a href="#types">题材分类</a>
+      <a href="#notice">使用须知</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="kicker">线上漫画阅读入口</span>
+      <h1>漫画免费网站</h1>
+      <p class="lede">想找不用付费就能看的漫画，可以从这里开始。漫画免费网站把免费漫画的阅读入口、热门连载和完结作品整理在一起，按题材和更新情况分门别类，打开就能读，不必先注册账号。</p>
+      <div class="cta">
+        <a class="btn solid" href="#catalog">进入阅读列表</a>
+        <a class="btn ghost" href="#how">看看怎么读</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 300" role="img">
+        <rect width="420" height="300" fill="#fffdf8"/>
+        <g stroke="#22201d" stroke-width="2" fill="none">
+          <rect x="30" y="34" width="170" height="110" rx="8" fill="#f6ddd7"/>
+          <rect x="220" y="34" width="170" height="110" rx="8" fill="#e6ecf3"/>
+          <rect x="30" y="160" width="360" height="106" rx="8" fill="#ebe6db"/>
+        </g>
+        <g fill="#22201d">
+          <circle cx="80" cy="78" r="6"/><circle cx="104" cy="78" r="6"/>
+          <path d="M74 98c6 10 24 10 30 0" stroke="#22201d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="272" cy="78" r="6"/><circle cx="296" cy="78" r="6"/>
+          <path d="M266 100c6-8 24-8 30 0" stroke="#22201d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g fill="#e0553c">
+          <rect x="54" y="188" width="120" height="10" rx="5"/>
+          <rect x="54" y="210" width="200" height="10" rx="5"/>
+        </g>
+        <g fill="#b9b0a0">
+          <rect x="54" y="232" width="150" height="10" rx="5"/>
+          <rect x="270" y="188" width="96" height="54" rx="6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <section id="catalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热门连载与完结作品</h2>
+        <p>按阅读热度排序，点开即读</p>
+      </div>
+      <div class="list">
+        <a class="row" href="#catalog">
+          <span class="num">01</span>
+          <div class="info">
+            <h3>少年热血 · 城市追光</h3>
+            <p>少年在旧城区组队参赛，主线围绕友情与成长展开，周更三话。</p>
+          </div>
+          <span class="meta"><b>连载中</b><br>热血 / 校园</span>
+        </a>
+        <a class="row" href="#catalog">
+          <span class="num">02</span>
+          <div class="info">
+            <h3>日常治愈 · 面包店的下午</h3>
+            <p>小面包店与常客之间的琐碎日常，节奏轻松，适合碎片时间阅读。</p>
+          </div>
+          <span class="meta"><b>连载中</b><br>治愈 / 生活</span>
+        </a>
+        <a class="row" href="#catalog">
+          <span class="num">03</span>
+          <div class="info">
+            <h3>悬疑推理 · 第七码头</h3>
+            <p>码头旧案牵出新线索，单元式案件结构，每卷收束一个谜题。</p>
+          </div>
+          <span class="meta"><b>连载中</b><br>悬疑 / 推理</span>
+        </a>
+        <a class="row" href="#catalog">
+          <span class="num">04</span>
+          <div class="info">
+            <h3>奇幻冒险 · 云上的邮差</h3>
+            <p>已完结全八卷，讲述替人送信的邮差穿越浮空岛群的故事。</p>
+          </div>
+          <span class="meta"><b>已完结</b><br>奇幻 / 冒险</span>
+        </a>
+        <a class="row" href="#catalog">
+          <span class="num">05</span>
+          <div class="info">
+            <h3>恋爱喜剧 · 同桌的备忘录</h3>
+            <p>同桌之间借由一本备忘录传话，误会与笑点交错推进。</p>
+          </div>
+          <span class="meta"><b>连载中</b><br>恋爱 / 喜剧</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>在漫画免费网站怎么读</h2>
+        <p>三步完成，无需注册</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>按题材找书</h3>
+          <p>先在首页或分类页按热血、治愈、悬疑等题材筛，也可以直接用搜索框输入漫画名。</p>
+        </div>
+        <div class="step">
+          <h3>打开章节阅读</h3>
+          <p>进入作品页后从第一话开始，页面采用纵向翻页，章节之间可以连续下滑，阅读进度自动记录。</p>
+        </div>
+        <div class="step">
+          <h3>收藏与追更</h3>
+          <p>把在追的作品加入书架，更新后会出现在书架顶部，方便下次直接续读，不必重新翻找。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="types">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>题材分类与阅读取向</h2>
+        <p>不同题材的阅读节奏差别明显</p>
+      </div>
+      <div class="grid c3">
+        <article class="card">
+          <span class="tag">热血冒险</span>
+          <h3>长线叙事</h3>
+          <p>主线跨度大，适合按卷连读。漫画免费网站上的热血作品多为周更，追更时建议先看前几话确认节奏是否合口味。</p>
+        </article>
+        <article class="card">
+          <span class="tag">日常治愈</span>
+          <h3>单话成篇</h3>
+          <p>每话相对独立，随时翻开都能接上，通勤或午休读一两话刚好，对连续阅读时间的要求最低。</p>
+        </article>
+        <article class="card">
+          <span class="tag">悬疑推理</span>
+          <h3>线索导向</h3>
+          <p>需要留意画面细节和前后呼应，建议一次读完整卷再停，避免隔太久忘记伏笔位置而影响理解。</p>
+        </article>
+        <article class="card">
+          <span class="tag">恋爱喜剧</span>
+          <h3>对话驱动</h3>
+          <p>信息主要藏在对话与表情里，横向翻页时注意对话框顺序，手机竖屏阅读时字号可适当放大。</p>
+        </article>
+        <article class="card">
+          <span class="tag">奇幻世界</span>
+          <h3>设定先行</h3>
+          <p>开篇常有大段世界观交代，耐心读完前两话再判断，很多设定会在后续章节逐步回收。</p>
+        </article>
+        <article class="card">
+          <span class="tag">完结作品</span>
+          <h3>一次读完</h3>
+          <p>已完结的作品没有追更压力，适合周末整卷阅读，也方便回看时对照前面的伏笔与人物关系。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="notice">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>使用须知</h2>
+        <p>阅读前值得先了解的两件事</p>
+      </div>
+      <div class="note">
+        <div>
+          <h3>关于内容来源</h3>
+          <p style="margin:0 0 12px;color:var(--ink-soft);font-size:14.5px;">本站作为漫画免费网站的入口页，汇总的是公开可访问的漫画阅读页面信息，作品版权归原作者与发布方所有。站内不存储漫画图片资源，具体章节内容以各作品页面实际展示为准。</p>
+          <ul>
+            <li><strong>阅读环境：</strong>主流手机与桌面浏览器均可直接打开，无需安装额外插件。</li>
+            <li><strong>更新节奏：</strong>连载作品的更新时间由原发布方决定，页面标注的更新状态仅作参考。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>阅读习惯建议</h3>
+          <ul>
+            <li><strong>控制时长：</strong>连续阅读一小时左右建议起身休息，避免长时间低头看屏。</li>
+            <li><strong>善用书架：</strong>在追作品统一放进书架，比每次从头搜索更省时间。</li>
+            <li><strong>记录偏好：</strong>记下自己喜欢的题材与画风，下次挑选新作品时更容易判断。</li>
+            <li><strong>尊重创作：</strong>喜欢某部作品时，可通过发布方提供的正规渠道支持作者。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="dl">
+        <div>
+          <h3>下载阅读清单</h3>
+          <p>把本次整理的热门连载与完结作品清单保存到本地，离线时也能按名单逐本查找。</p>
+        </div>
+        <a class="btn solid" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="foot-brand" href="#top">
+        <svg class="mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#ebe6db"/>
+          <path d="M15 17h14a6 6 0 0 1 6 6v25a6 6 0 0 0-6-6H15z" fill="#22201d"/>
+          <path d="M49 17H35a6 6 0 0 0-6 6v25a6 6 0 0 1 6-6h14z" fill="#e0553c"/>
+        </svg>
+        <span>漫画免费网站</span>
+      </a>
+      <div class="foot-links">
+        <a href="#catalog">热门连载</a>
+        <a href="#how">阅读方式</a>
+        <a href="#types">题材分类</a>
+        <a href="#notice">使用须知</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      漫画免费网站为漫画阅读入口页，汇总公开可访问的免费漫画作品信息，作品版权归原作者与发布方所有。
+    </div>
+  </div>
+</footer>
+
+<script>
+function jumpSearch(e){
+  e.preventDefault();
+  var q=document.getElementById('q');
+  var v=(q.value||'').trim();
+  var target=document.getElementById('catalog');
+  if(!v){ target.scrollIntoView({behavior:'smooth'}); return false; }
+  var rows=document.querySelectorAll('#catalog .row');
+  var hit=null;
+  rows.forEach(function(r){
+    if(r.textContent.indexOf(v)>-1 && !hit){ hit=r; }
+  });
+  if(hit){ hit.scrollIntoView({behavior:'smooth',block:'center'}); hit.style.outline='2px solid #e0553c'; setTimeout(function(){hit.style.outline='';},1600); }
+  else { target.scrollIntoView({behavior:'smooth'}); }
+  return false;
+}
+</script>
+</body>
+</html>
